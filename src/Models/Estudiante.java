@@ -9,6 +9,13 @@ public class Estudiante {
     public Estudiante() {
     }
 
+    public Estudiante(String codigo, String nombre, float promedio, Carrera carrera) {
+        this.codigo = codigo;
+        this.nombre = nombre;
+        this.promedio = promedio;
+        this.carrera = carrera;
+    }
+
     public String getCodigo() {
         return codigo;
     }
