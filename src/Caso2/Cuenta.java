@@ -5,21 +5,13 @@ public class Cuenta {
     private Cliente cliente;
     private double saldo;
 
-    public Cuenta(String numeroCuenta, Cliente cliente, double saldoInicial) {
+    public Cuenta(String numeroCuenta, Cliente cliente, double saldo) {
         this.numeroCuenta = numeroCuenta;
         this.cliente = cliente;
-        this.saldo = saldoInicial;
+        this.saldo = saldo;
     }
 
-    public String getNumeroCuenta() {
-        return numeroCuenta;
-    }
-
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public double getSaldo() {
+    public double consultarSaldo() {
         return saldo;
     }
 
@@ -32,27 +24,27 @@ public class Cuenta {
         }
     }
 
-    public boolean retirar(double monto) {
+    public double retirar(double monto) {
         if (monto <= 0) {
             System.out.println("Error: el monto a retirar debe ser mayor que 0.");
-            return false;
+            return saldo;
         }
 
         if (monto > saldo) {
-            System.out.println("Error: No tienes fondos suficientes.");
-            return false;
+            System.out.println("Error: fondos insuficientes.");
+            return saldo;
         }
 
         saldo -= monto;
-        System.out.println("Operacion de retiro completada correctamente.");
-        return true;
+        System.out.println("Retiro realizado correctamente.");
+        return saldo;
     }
 
-    public void consultarSaldo() {
-        System.out.println("Datos de la cuenta:");
-        System.out.println("Cliente: " + cliente.getNombre());
-        System.out.println("Numero de cuenta: " + numeroCuenta);
-        System.out.println("Saldo actual: C$" + saldo);
+    public String mostrarDatos() {
+        return "Datos de la cuenta:\n" +
+                "Cliente: " + cliente.getNombres() + " " + cliente.getApellidos() + "\n" +
+                "Identificacion: " + cliente.getIdentificacion() + "\n" +
+                "Numero de cuenta: " + numeroCuenta + "\n" +
+                "Saldo actual: C$" + saldo;
     }
 }
-
