@@ -1,6 +1,5 @@
 package Models;
 
-// Gunther
 public class Estudiante {
     private String codigo;
     private String nombre;
@@ -49,17 +48,25 @@ public class Estudiante {
         this.carrera = carrera;
     }
 
-    public boolean aprobar() {
-        return promedio >= 70;
+    public boolean aprobar(float promedio)
+    {
+        if(promedio>=70)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     @Override
     public String toString() {
-        return "Estudiante{" +
-                "codigo='" + codigo + '\'' +
-                ", nombre='" + nombre + '\'' +
-                ", promedio=" + promedio +
-                ", carrera=" + carrera +
+        return "Estudiante\n{" +
+                "codigo='" + codigo + '\'' +"\n"+
+                ", nombre='" + nombre + '\''+"\n" +
+                ", promedio=" + promedio +"\n"+
+                ", carrera=" + carrera +"\n"+
                 '}';
     }
 }
