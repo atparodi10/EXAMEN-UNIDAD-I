@@ -49,6 +49,32 @@ public class Main {
             System.out.print("Seleccione una opcion: ");
             opcion = scanner.nextInt();
 
+            switch (opcion) {
+                case 1:
+                    System.out.println("\nSaldo actual: C$" + cuenta.consultarSaldo());
+                    System.out.println(cuenta.mostrarDatos());
+                    break;
+
+                case 2:
+                    System.out.print("Ingrese el monto a depositar: ");
+                    double deposito = scanner.nextDouble();
+                    cuenta.depositar(deposito);
+                    break;
+
+                case 3:
+                    System.out.print("Ingrese el monto a retirar: ");
+                    double retiro = scanner.nextDouble();
+                    cuenta.retirar(retiro);
+                    break;
+
+                case 4:
+                    System.out.println("Gracias por utilizar el sistema bancario, tenga un buen dia...");
+                    break;
+
+                default:
+                    System.out.println("Opcion invalida. Intenta nuevamente.");
+            }
+
         } while (opcion != 4);
 
         scanner.close();
