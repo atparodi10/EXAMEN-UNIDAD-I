@@ -6,9 +6,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        List<String> DatosEstudiantes = new ArrayList<>();
-        Estudiante estudiante = new Estudiante();
-        Carrera carrera = new Carrera();
+        List<Estudiante> DatosEstudiantes = new ArrayList<>();
+
 
         String nombres, codigos, nombre_carreras;
         float promedio;
@@ -20,7 +19,7 @@ public class Main {
         int opcion;
 
         do{
-            System.out.println("Ingrese una opción\n\n1. Agregar Estudiante\n2. Ver Lista\n3.Salir");
+            System.out.println("Ingrese una opción\n1. Agregar Estudiante\n2. Ver Lista\n3. Salir");
             System.out.println("Seleccione una opción: ");
 
             opcion = op.nextInt();
@@ -29,8 +28,10 @@ public class Main {
             switch(opcion)
             {
                 case 1:
+                    Estudiante estudiante = new Estudiante();
+                    Carrera carrera = new Carrera();
                     System.out.println("----AGREGAR ESTUDIANTE----");
-                    System.out.println("Cantidad de aprobados: "+ aprobados + "Cantidad de reprobados: "+ reprobados);
+                    System.out.println("Cantidad de aprobados: "+ aprobados + "\nCantidad de reprobados: "+ reprobados);
                     System.out.println("Ingrese el nombre del estudiante: ");
                     nombres = op.nextLine();
                     estudiante.setNombre(nombres);
@@ -40,6 +41,7 @@ public class Main {
                     System.out.println("Ingrese el promedio del estudiante: ");
                     promedio = op.nextFloat();
                     op.nextLine();
+                    DatosEstudiantes.add(estudiante);
 
                     while(promedio < 0 || promedio >100)
                 {
@@ -71,14 +73,24 @@ public class Main {
 
                 case 2:
                     System.out.println("----LISTA DE ESTUDIANTES----");
-                    for(int i = 0; i <= DatosEstudiantes.size(); i++)
-                    {
-                        System.out.println((i+1) + ".\n");
+                    if(DatosEstudiantes.isEmpty()) {
+                        System.out.println("La lista está vacía.");
+                    } else {
+                        for(int i = 0; i < DatosEstudiantes.size(); i++) {
+                            // Obtenemos el objeto directamente como un Estudiante
+                            Estudiante e = DatosEstudiantes.get(i);
+
+                            System.out.println((i + 1) + ". Nombre: " + e.getNombre() +
+                                    " | Promedio: " + e.getPromedio() +
+                                    " | Carrera: " + e.getCarrera().getNombre()+
+                                    " | Código: " + e.getCodigo());
+                        }
                     }
                     break;
 
                 case 3:
                     System.out.println("Saliendo del programa...");
+                    break;
 
                 default:
                     System.out.println("Opción incorrecta. Intente Nuevamente.");
