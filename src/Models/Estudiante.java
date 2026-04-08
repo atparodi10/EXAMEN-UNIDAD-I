@@ -1,4 +1,55 @@
 package Models;
 
 public class Estudiante {
+    private String codigo;
+    private String nombre;
+    private float promedio;
+    private Carrera carrera;
+
+    public Estudiante() {
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public float getPromedio() {
+        return promedio;
+    }
+
+    public void setPromedio(float promedio) {
+        this.promedio = promedio;
+    }
+
+    public Carrera getCarrera() {
+        return carrera;
+    }
+
+    public void setCarrera(Carrera carrera) {
+        this.carrera = carrera;
+    }
+
+    public boolean aprobar(float promedio)
+    {
+        if(promedio>=70)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }
