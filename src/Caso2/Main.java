@@ -37,5 +37,20 @@ public class Main {
 
         Cliente cliente = new Cliente(identificacion, nombres, apellidos);
         Cuenta cuenta = new Cuenta(numeroCuenta, cliente, saldoInicial);
+
+        int opcion;
+
+        do {
+            System.out.println("\nMenu:");
+            System.out.println("1. Consultar saldo");
+            System.out.println("2. Depositar dinero");
+            System.out.println("3. Retirar dinero");
+            System.out.println("4. Salir");
+            System.out.print("Seleccione una opcion: ");
+            opcion = scanner.nextInt();
+
+        } while (opcion != 4);
+
+        scanner.close();
     }
 }
