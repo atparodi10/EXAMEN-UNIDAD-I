@@ -1,10 +1,14 @@
 package Models;
+
 // Gunther
 public class Estudiante {
-    private final String codigo;
-    private final String nombre;
-    private final float promedio;
-    private final Carrera carrera;
+    private String codigo;
+    private String nombre;
+    private float promedio;
+    private Carrera carrera;
+
+    public Estudiante() {
+    }
 
     public Estudiante(String codigo, String nombre, float promedio, Carrera carrera) {
         this.codigo = codigo;
@@ -17,18 +21,32 @@ public class Estudiante {
         return codigo;
     }
 
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
     public String getNombre() {
         return nombre;
     }
 
-    public float getPromedio() {
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
+    public float getPromedio() {
         return promedio;
     }
 
-    public Carrera getCarrera() {
+    public void setPromedio(float promedio) {
+        this.promedio = promedio;
+    }
 
+    public Carrera getCarrera() {
         return carrera;
+    }
+
+    public void setCarrera(Carrera carrera) {
+        this.carrera = carrera;
     }
 
     public boolean aprobar() {
@@ -37,10 +55,11 @@ public class Estudiante {
 
     @Override
     public String toString() {
-        return "Código: " + codigo +
-                "\nNombre: " + nombre +
-                "\nCarrera: " + carrera.getNombre() +
-                "\nPromedio: " + promedio +
-                "\nEstado: " + (aprobar() ? "Aprobado" : "Reprobado");
+        return "Estudiante{" +
+                "codigo='" + codigo + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", promedio=" + promedio +
+                ", carrera=" + carrera +
+                '}';
     }
 }
